@@ -1,3 +1,5 @@
+"use strict";
+
 document.getElementById("searchButton").onclick = function () {
   search();
 };
@@ -8,7 +10,7 @@ function search() {
   if (input) {
     var xmlhttp = new XMLHttpRequest(),
         method = 'GET',
-        url = `./node/${input}.json`;
+        url = "./node/".concat(input, ".json");
     xmlhttp.open(method, url, true);
 
     xmlhttp.onload = function () {
@@ -41,5 +43,7 @@ function render(data) {
     container.innerHTML = "";
   }
 
-  Object.keys(data).map(element => arrToUl(data[element], container, element));
+  Object.keys(data).map(function (element) {
+    return arrToUl(data[element], container, element);
+  });
 }
