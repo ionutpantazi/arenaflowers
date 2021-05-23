@@ -15,10 +15,8 @@ function search() {
 
     xmlhttp.onload = function () {
       var data = xmlhttp.response;
-
-      if (JSON.parse(data)) {
-        render(JSON.parse(data).results);
-      }
+      console.log(data);
+      render(JSON.parse(data).results);
     };
 
     xmlhttp.send();
