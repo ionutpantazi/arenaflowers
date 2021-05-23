@@ -11,7 +11,9 @@ function search() {
 		xmlhttp.open(method, url, true);
 		xmlhttp.onload = function () {
 			var data = xmlhttp.response
-			render(JSON.parse(data).results)
+			if (data) {
+				render(JSON.parse(data).results);
+			}
 		};
 		xmlhttp.send();
 	}
