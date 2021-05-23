@@ -47,23 +47,27 @@ class App extends React.Component {
         </div>
         <br />
         <div className="Header">
-          <span className="Name">Country Name</span>
-          <span className="City">Capital City</span>
+          <ul>
+            <li id="Name" className="Name">
+              Country Name
+            </li>
+            <li id="City" className="City">
+              Capital City
+            </li>
+          </ul>
         </div>
         <div className="Results">
           {result &&
             Object.keys(result).map(function (element) {
               return (
-                <div style={{ backgroundColor: (element & 1) ? '#fafafa' : '#e3e1e1' }}>
-                  <ul className="List">
-                    <li id={result[element].countryName}>
-                      <span className="Name">{result[element].countryName}</span>
-                    </li>
-                    <li id={result[element].capitalCity}>
-                      <span className="City">{result[element].capitalCity}</span>
-                    </li>
-                  </ul>
-                </div>
+                <ul style={{ backgroundColor: (element & 1) ? '#fafafa' : '#e3e1e1' }}>
+                  <li id={result[element].countryName} className="Name">
+                    {result[element].countryName}
+                  </li>
+                  <li id={result[element].capitalCity} className="City">
+                    {result[element].capitalCity}
+                  </li>
+                </ul>
               )
             })
           }
