@@ -15,8 +15,18 @@ function search() {
 
     xmlhttp.onload = function () {
       var data = xmlhttp.response;
-      console.log(data);
-      render(JSON.parse(data).results);
+
+      var check = function check() {
+        try {
+          JSON.parse(data);
+        } catch (e) {
+          return true;
+        }
+      };
+
+      if (!check()) {
+        render(JSON.parse(data).results);
+      }
     };
 
     xmlhttp.send();
